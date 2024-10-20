@@ -24,8 +24,12 @@ namespace HRLeaveManagement.Application.Features.LeaveRequest.Queries.GetAllLeav
 
         public async Task<List<LeaveRequestDto>> Handle(GetLeaveRequestsQuery request, CancellationToken cancellationToken)
         {
+            // TODO: Check if it is logged in employee
+
             var leaveRequests = await leaveRequestRepository.GetAsync();
             var data = mapper.Map<List<LeaveRequestDto>>(leaveRequests);
+
+            // Fill requests with employee details
 
             logger.LogInformation("Leave Requests were retrived successfully");
             return data;
