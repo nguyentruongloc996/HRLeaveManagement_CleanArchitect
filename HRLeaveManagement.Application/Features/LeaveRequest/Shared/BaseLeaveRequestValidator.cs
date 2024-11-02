@@ -23,7 +23,7 @@ namespace HRLeaveManagement.Application.Features.LeaveRequest.Shared
                 .GreaterThan(p => p.StartDate)
                 .WithMessage("{PropertyName} must be after {ComparisonValue}");
 
-            RuleFor(p => p.LeeaveTypeId)
+            RuleFor(p => p.LeaveTypeId)
                 .GreaterThan(0)
                 .MustAsync(LeaveTypeMustExist)
                 .WithMessage("{PropertyName} does not exist.");

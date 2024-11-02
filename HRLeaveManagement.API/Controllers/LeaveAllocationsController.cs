@@ -41,7 +41,7 @@ namespace HRLeaveManagement.API.Controllers
         public async Task<ActionResult> Post(CreateLeaveAllocationCommand createLeaveAllocation)
         {
             var response = await mediator.Send(createLeaveAllocation);
-            return Ok(response);
+            return CreatedAtAction(nameof(Get), new {id = response});
         }
 
         [HttpPut]
